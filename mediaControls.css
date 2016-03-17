@@ -173,6 +173,7 @@ video:-webkit-full-page-media::-webkit-media-controls-panel {
 audio::-webkit-media-controls-mute-button, video::-webkit-media-controls-mute-button {
     -webkit-appearance: media-mute-button;
     display: flex;
+    display: none;
     flex: none;
     border: none;
     box-sizing: border-box;
@@ -267,6 +268,7 @@ audio::-webkit-media-controls-play-button, video::-webkit-media-controls-play-bu
     padding: 0;
     background-color: initial;
     color: inherit;
+    order: 0;
 }
 
 
@@ -285,40 +287,41 @@ audio::-webkit-media-controls-timeline-container, video::-webkit-media-controls-
 audio::-webkit-media-controls-current-time-display, video::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display, video::-webkit-media-controls-time-remaining-display {
     -webkit-appearance: media-current-time-display;
+    display: block!important;
     -webkit-user-select: none;
     flex: none;
     display: flex;
     border: none;
     cursor: default;
-
     height: 30px;
-    margin: 0 9px 0 0;
+    margin: 0 15px 0 0;
     padding: 0;
-
     line-height: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    /*yutao change*/
+    font-family: Arial, Helvetica, sans-serif;/*yutao change*/
     font-size: 12px;
     /*font-size: 13px;*/
     /*font-weight: bold;*/
-    font-weight: normal;
-    /*yutao end*/
+    font-weight: normal;/*yutao end*/
     font-style: normal;
     color: white;
-
     letter-spacing: normal;
     word-spacing: normal;
     text-transform: none;
     text-indent: 0;
     text-shadow: none;
     text-decoration: none;
-
 }
-
+video::-webkit-media-controls-current-time-display{
+    order: 1
+}
+video::-webkit-media-controls-time-remaining-display{
+    order: 3;
+}
 audio::-webkit-media-controls-timeline, video::-webkit-media-controls-timeline {
     -webkit-appearance: media-slider;
     display: flex;
     flex: 1 1 auto;
+    order: 2;
     height: 8px;
     margin: 0 15px 0 0;
     padding: 0;
@@ -326,7 +329,6 @@ audio::-webkit-media-controls-timeline, video::-webkit-media-controls-timeline {
     min-width: 25px;
     border: initial;
     color: inherit;
-    
     width: 100%;
     height:4px;
     /*background-color:red;*//*yutao end*/
@@ -334,10 +336,10 @@ audio::-webkit-media-controls-timeline, video::-webkit-media-controls-timeline {
 
 audio::-webkit-media-controls-volume-slider, video::-webkit-media-controls-volume-slider {
     -webkit-appearance: media-volume-slider;
-    display: flex;
-    /* The 1.9 value was empirically chosen to match old-flexbox behaviour
+    display: flex;/* The 1.9 value was empirically chosen to match old-flexbox behaviour
      * and be aesthetically pleasing.
      */
+    display: none;
     flex: 1 1.9 auto;
     height: 8px;
     max-width: 70px;
@@ -379,6 +381,7 @@ audio::-webkit-media-controls-fullscreen-button, video::-webkit-media-controls-f
     -webkit-appearance: media-enter-fullscreen-button;
     display: flex;
     flex: none;
+    order: 10;
     border: none;
     box-sizing: border-box;
     width: 30px;
@@ -388,11 +391,8 @@ audio::-webkit-media-controls-fullscreen-button, video::-webkit-media-controls-f
     margin-right: 9px;
     padding: 0;
     background-color: initial;
-    color: inherit;
-
-    /*yutao  add*/
-    margin-left:auto;
-    /*yutao end*/
+    color: inherit;/*yutao  add*/
+    margin-left:auto;/*yutao end*/
 }
 
 
